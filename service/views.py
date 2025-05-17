@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import Feature
+from .forms import UserRegistrationForm
 
 # Create your views here.
 def index(request):
@@ -60,3 +61,16 @@ def post(request,pk):
 def counter(request):
     posts=[1,2,3,4,5,'mohana','momo','surya','appa']
     return render(request,'counter.html',{'posts':posts})
+
+# from django.shortcuts import render, redirect
+# from .forms import UserRegistrationForm
+
+def register_user(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'success.html')  # or redirect to login
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'register.html', {'form': form})

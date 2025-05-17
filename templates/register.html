@@ -1,4 +1,4 @@
-<h1>Sign Up here!!</h1>
+{% comment %} <h1>Sign Up here!!</h1>
 <style>
 h5{
         color:red;
@@ -20,4 +20,19 @@ h5{
     <p>Repeat password:</p>
     <input type="password" name="password2" /><br>
     <input type="submit"/>
-</form>
+</form> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
