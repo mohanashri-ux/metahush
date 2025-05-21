@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dog Breeds</title>
+</head>
+<body>
+    <h2>Dog Breeds</h2>
+    <ul>
+        {% for breed in breeds %}
+            <li>
+                <strong>{{ breed.name }}</strong> - {{ breed.origin }} ({{ breed.size }})
+                {% if breed.image %}
+                    <br><img src="{{ breed.image.url }}" width="150">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
