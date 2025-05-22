@@ -26,3 +26,13 @@ class DogBreed(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+class LoginData(models.Model):
+    email = models.EmailField()
+    password = models.CharField(max_length=100)  # Store hashed password ideally
+    login_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email

@@ -36,21 +36,24 @@ def register(request):
     else:
         return render(request,'register.html')
     
-def login(request):
-    if request.method=='POST':
-        username=request.POST['username']
-        password=request.POST['password']
-        
-        user=auth.authenticate(username=username,password=password)
-        
-        if user is not None:
-            auth.login(request,user)
-            return redirect('/')
-        else:
-            messages.info(request,'Credentials invalid')
-            return redirect('login')
+from django.shortcuts import render, redirect
+from .forms import LoginForm
+from .models import LoginData
+
+def login_view(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            # Save the login data
+            LoginData.objects.create(
+                email=form.cleaned_data['email'],
+                password=form.cleaned_data['password']  # For real app, hash the password
+            )
+            return render(request, 'index.html')  # or redirect to dashboard
     else:
-        return render (request,'login.html') 
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
+
     
 def logout(request):
     auth.logout(request)
@@ -59,3 +62,8 @@ def logout(request):
 def dog_breed_list(request):
     breeds = DogBreed.objects.all()
     return render(request, 'dog_breed_list.html', {'breeds': breeds})
+
+def payment_view(request):
+    if request.method == 'POST':
+        dog_id = request.POST.get('dog_id')
+        return render(request, 'payment.html', {'dog_id': dog_id})
