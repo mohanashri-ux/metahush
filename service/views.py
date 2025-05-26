@@ -66,4 +66,4 @@ def dog_breed_list(request):
 def payment_view(request):
     if request.method == 'POST':
         dog_id = request.POST.get('dog_id')
-        return render(request, 'payment.html', {'dog_id': dog_id})
+        return render(request, 'eStore/payment.html', {'dog_id': dog_id})
