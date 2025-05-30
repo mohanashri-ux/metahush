@@ -129,7 +129,7 @@ button:hover {
             <li>Length: 19-40 in</li>
             <li>Life: 10 yrs</li>
         </ul>
-        <form action="{% url 'payment' %}" method="POST">
+        {% comment %} <form action="{% url 'payment' %}" method="POST"> {% endcomment %}
   {% csrf_token %}
   <input type="hidden" name="dog_id" value="{{ dog.id }}">
   <button type="submit">Buy</button>

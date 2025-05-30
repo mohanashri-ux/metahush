@@ -63,7 +63,7 @@ def dog_breed_list(request):
     breeds = DogBreed.objects.all()
     return render(request, 'dog_breed_list.html', {'breeds': breeds})
 
-def payment_view(request):
-    if request.method == 'POST':
-        dog_id = request.POST.get('dog_id')
-        return render(request, 'eStore/payment.html', {'dog_id': dog_id})
+# def payment_view(request):
+#     if request.method == 'POST':
+#         dog_id = request.POST.get('dog_id')
+#         return render(request, 'eStore/payment.html', {'dog_id': dog_id})
