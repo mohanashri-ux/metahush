@@ -23,6 +23,7 @@ class DogBreed(models.Model):
         ('large', 'Large'),
     ])
     image = models.ImageField(upload_to='dog_breeds/', blank=True, null=True)
+   
 
     def __str__(self):
         return self.name

@@ -1,0 +1,1 @@
+from .dogs_data import Command as DogBreedCommand

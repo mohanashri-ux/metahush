@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Cart - Pawfect Match</title>
+   <!-- Main CSS File -->
+  <link href="{% static 'assets/css/cart.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-p8DF+kO6DujMn2e3Yq5..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Your Cart</h1>
+      <div class="breadcrumbs">
+        <a href="#">Home</a> / <span>Cart</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Section -->
+  <section class="cart-section">
+    <div class="container">
+
+      <div class="cart-container">
+        <!-- Cart Items -->
+        <div class="cart-items">
+          <div class="cart-item">
+            <div class="cart-item-image">
+              <img src="https://place-puppy.com/100x100" alt="Buddy">
+            </div>
+            <div class="cart-item-details">
+              <h3>Buddy</h3>
+              <p class="dog-breed">Labrador</p>
+              <p class="dog-age">2 years</p>
+            </div>
+            <div class="cart-item-quantity">
+              <button class="quantity-btn" disabled><i class="fas fa-minus"></i></button>
+              <span class="quantity">1</span>
+              <button class="quantity-btn"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="cart-item-price">
+              $150
+            </div>
+            <div class="cart-item-remove">
+              <button class="remove-btn"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+
+          <!-- You can duplicate .cart-item to add more dogs -->
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+          <h3>Order Summary</h3>
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <span>$150</span>
+          </div>
+          <div class="summary-line">
+            <span>Adoption Fee</span>
+            <span>$50</span>
+          </div>
+          <div class="summary-line">
+            <span>Tax</span>
+            <span>$15</span>
+          </div>
+          <div class="summary-line total">
+            <span>Total</span>
+            <span>$215</span>
+          </div>
+
+          <a href="#" class="btn btn-primary btn-block">Proceed to Checkout</a>
+          <a href="#" class="btn btn-outline btn-block">Continue Shopping</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

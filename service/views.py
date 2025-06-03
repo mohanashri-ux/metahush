@@ -11,6 +11,7 @@ def index(request):
     features=Feature.objects.all()  
     return render(request,'index.html',{'features':features})
 
+
 def register(request):
     if request.method=='POST':
         username=request.POST['username']
@@ -67,3 +68,4 @@ def dog_breed_list(request):
 #     if request.method == 'POST':
 #         dog_id = request.POST.get('dog_id')
 #         return render(request, 'eStore/payment.html', {'dog_id': dog_id})
+
