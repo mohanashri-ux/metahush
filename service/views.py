@@ -61,8 +61,14 @@ def logout(request):
     return redirect('/')
 
 def dog_breed_list(request):
+    # getting data from dogbreed model
     breeds = DogBreed.objects.all()
     return render(request, 'dog_breed_list.html', {'breeds': breeds})
+
+def detail(request,breed_id):
+    breed=DogBreed.objects.get(pk=breed_id)
+    
+    return render(request,'details.html',{'breed':breed})
 
 # def payment_view(request):
 #     if request.method == 'POST':

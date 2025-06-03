@@ -123,7 +123,7 @@ button:hover {
         {%for breed in breeds %}
     
     <div class="dog-card">
-    <img src="{{ breed.image.url }}" alt="{{ breed.name }}">
+    <img style="height:300;width:300" src="{{ breed.image }}" alt="{{ breed.name }}">
         <h3>{{breed.name }}</h3>
         <p>{{breed.origin}}</p>
         {% comment %} <ul>
@@ -139,12 +139,12 @@ button:hover {
   <button type="submit">Buy</button>
 </form> {% endcomment %}
 
-        <button type="submit" action="cart.html">Buy</button>
+<a href="{% url 'detail' breed.id %}" class="btn btn-primary">Buy</a>
     </div>
 {% empty %}
 <p>No species available right now .</p>
  {% endfor %}    
-    <div class="dog-card">
+    {% comment %} <div class="dog-card">
         <img style="height:300;width:300" src="{{breeds.image}}" alt="Chihuahua dog">
         <h3>Chihuahufxga dog:</h3>
         <p>The Siamese dog is one of the first distinctly recognized breeds of Asian dogs.</p>
@@ -169,7 +169,7 @@ button:hover {
             <li>Life: 12 yrs</li>
         </ul>
         <button type="submit" >Buy</button>
-    </div>
+    </div> {% endcomment %}
 
    </div>
 </body>
