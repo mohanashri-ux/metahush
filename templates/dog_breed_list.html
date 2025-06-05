@@ -139,10 +139,11 @@ button:hover {
   <button type="submit">Buy</button>
 </form> {% endcomment %}
 
-<a href="{% url 'detail' breed.id %}" class="btn btn-primary">Buy</a>
+<a href="{% url 'detail' breed_id=breed.id %}" class="btn btn-primary">Buy</a>
     </div>
 {% empty %}
 <p>No species available right now .</p>
+
  {% endfor %}    
     {% comment %} <div class="dog-card">
         <img style="height:300;width:300" src="{{breeds.image}}" alt="Chihuahua dog">

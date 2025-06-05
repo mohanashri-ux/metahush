@@ -63,6 +63,7 @@ def logout(request):
 def dog_breed_list(request):
     # getting data from dogbreed model
     breeds = DogBreed.objects.all()
+    # print("All breeds from DB:", breeds)
     return render(request, 'dog_breed_list.html', {'breeds': breeds})
 
 def detail(request,breed_id):
