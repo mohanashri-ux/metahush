@@ -10,7 +10,7 @@ urlpatterns = [
     path('login',views.login_view,name='login'),
     path('logout',views.logout,name='logout'),
     path('dog-breeds',views.dog_breed_list,name='dog-breeds'),
-    path('dog-breed/<int:breed_id>/', views.detail, name='detail'),
+    path('dog-breed/<slug:slug>/', views.detail, name='detail'),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

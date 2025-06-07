@@ -5,6 +5,7 @@ from django.contrib import messages
 from .models import Feature
 from .forms import UserRegistrationForm
 from .models import DogBreed
+from django.http import Http404
 
 # Create your views here.
 def index(request):
@@ -66,9 +67,14 @@ def dog_breed_list(request):
     # print("All breeds from DB:", breeds)
     return render(request, 'dog_breed_list.html', {'breeds': breeds})
 
-def detail(request,breed_id):
-    breed=DogBreed.objects.get(pk=breed_id)
-    
+def detail(request,slug):
+    try:
+        breed=DogBreed.objects.get(slug=slug)
+    except DogBreed.DoesNotExist:
+        raise Http404("Breed doesn't exist!")
+        
+        
+        
     return render(request,'details.html',{'breed':breed})
 
 # def payment_view(request):

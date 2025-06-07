@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 class Feature(models.Model):
@@ -16,14 +17,19 @@ class UserRegistration(models.Model):
     
 class DogBreed(models.Model):
     name = models.CharField(max_length=100)
-    origin = models.CharField(max_length=100, blank=True, null=True)
+    origin = models.CharField(max_length=500, blank=True, null=True)
     size = models.CharField(max_length=20, choices=[
         ('small', 'Small'),
         ('medium', 'Medium'),
         ('large', 'Large'),
     ])
     image = models.ImageField(upload_to='dog_breeds/', blank=True, null=True)
-   
+    slug=models.SlugField(unique=True) #to make sure every slug field's values are unique
+    
+    # to save those slugs
+    def save(self,*args, **kwargs):
+        self.slug=slugify(self.name) #generate url based on name category of that species to avoid hackers to know how many species we have in db
+        super().save(*args,**kwargs)
 
     def __str__(self):
         return self.name
@@ -37,3 +43,10 @@ class LoginData(models.Model):
 
     def __str__(self):
         return self.email
+
+#category
+class Category(models.Model):
+    name=models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
