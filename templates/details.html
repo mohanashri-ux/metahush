@@ -37,10 +37,27 @@
 </head>
 <body>
   <div class="breed-card">
-    <h1>{{ breed.name }}</h1>
+    <h1>{{ breed.name }}<small style="font-size:18px">({{breed.category.name}})</small></h1>
     <p>Origin: {{ breed.origin }}</p>
     <p>Size: {{ breed.size }}</p>
     <img src="{{ breed.image }}" alt="{{ breed.name }}" height="300" width="300">
+{% comment %} copide
+ {% endcomment %}
+<h5 style="font-size: 20px; color: #2c3e50; margin-top: 40px;">Related Breeds</h5>
+<ul style="list-style: none; padding-left: 0;">
+  {% for related in related_breeds %}
+    <li style="margin-bottom: 10px;">
+      <a href="{% url 'detail' slug=related.slug %}" 
+         style="text-decoration: none; color: #4CAF50; font-weight: bold;"
+         onmouseover="this.style.color='#388E3C'" 
+         onmouseout="this.style.color='#4CAF50'">
+         {{ related.name }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
   </div>
+  
 </body>
 </html>

@@ -15,6 +15,14 @@ class UserRegistration(models.Model):
     def __str__(self):
         return self.username
     
+    
+#category
+class Category(models.Model):
+    name=models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
+    
 class DogBreed(models.Model):
     name = models.CharField(max_length=100)
     origin = models.CharField(max_length=500, blank=True, null=True)
@@ -25,6 +33,8 @@ class DogBreed(models.Model):
     ])
     image = models.ImageField(upload_to='dog_breeds/', blank=True, null=True)
     slug=models.SlugField(unique=True) #to make sure every slug field's values are unique
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='breeds', null=True, blank=True)
+
     
     # to save those slugs
     def save(self,*args, **kwargs):
@@ -44,9 +54,3 @@ class LoginData(models.Model):
     def __str__(self):
         return self.email
 
-#category
-class Category(models.Model):
-    name=models.CharField(max_length=100)
-    
-    def __str__(self):
-        return self.name

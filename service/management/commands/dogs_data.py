@@ -1,7 +1,7 @@
 from typing import Any
-from service.models import DogBreed
+from service.models import DogBreed,Category
 from django.core.management.base import BaseCommand
-
+import random
 
 
     
@@ -268,8 +268,11 @@ class Command(BaseCommand):
     # }
 ]
 
+        categories=Category.objects.all()
+
         for name,origin,size,image in zip(names,origins,sizes,images):
-            DogBreed.objects.create(name=name,origin=origin,size=size,image=image)
+            category=random.choice(categories)
+            DogBreed.objects.create(name=name,origin=origin,size=size,image=image,category=category)
             
             
         self.stdout.write(self.style.SUCCESS("Completed inserting data"))

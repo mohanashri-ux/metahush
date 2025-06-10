@@ -38,6 +38,7 @@ h1 {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    {% comment %} padding:30 px; {% endcomment %}
 }
 
 .dog-card:hover {
@@ -135,43 +136,16 @@ button:hover {
         <p>Size:{{breed.size}}</p>
         {% comment %} <form action="{% url 'payment' %}" method="POST"> {% endcomment %}
   {% csrf_token %}
-  {% comment %} <input type="hidden" name="dog_id" value="{{ dog.id }}">
-  <button type="submit">Buy</button>
-</form> {% endcomment %}
+
 
 <a href="{% url 'detail' slug=breed.slug %}" class="btn btn-primary">Buy</a>
+<a class="text-decoration-none text-dark fw-bold" href="#" style="padding: 10px;">{{ breed.category.name }}</a>
     </div>
 {% empty %}
 <p>No species available right now .</p>
 
  {% endfor %}    
-    {% comment %} <div class="dog-card">
-        <img style="height:300;width:300" src="{{breeds.image}}" alt="Chihuahua dog">
-        <h3>Chihuahufxga dog:</h3>
-        <p>The Siamese dog is one of the first distinctly recognized breeds of Asian dogs.</p>
-        <ul>
-            <li>Height: 10-16 in</li>
-            <li>Weight: 18-22 lb</li>
-            <li>Length: 19-40 in</li>
-            <li>Life: 12 yrs</li>
-        </ul>
-        <button type="submit">Buy</button>
-    </div>
-
-  
-    <div class="dog-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGLqXqVNNOwYj1OTaL79C2aqFPnEKlrHLngQ&s" alt="Siberian Husky">
-        <h3>Siberian Huskswy:</h3>
-        <p>Siberian Husky are a sturdy breed, with both short- and long-haired coats.</p>
-        <ul>
-            <li>Height: 10-16 in</li>
-            <li>Weight: 18-22 lb</li>
-            <li>Length: 19-40 in</li>
-            <li>Life: 12 yrs</li>
-        </ul>
-        <button type="submit" >Buy</button>
-    </div> {% endcomment %}
-
+   
    </div>
 </body>
 </html>

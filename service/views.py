@@ -70,15 +70,18 @@ def dog_breed_list(request):
 def detail(request,slug):
     try:
         breed=DogBreed.objects.get(slug=slug)
+        related_breeds=DogBreed.objects.filter(category=breed.category).exclude(pk=breed.id)
+        
     except DogBreed.DoesNotExist:
         raise Http404("Breed doesn't exist!")
         
         
         
-    return render(request,'details.html',{'breed':breed})
+    return render(request,'details.html',{'breed':breed,'related_breeds':related_breeds})
 
 # def payment_view(request):
 #     if request.method == 'POST':
 #         dog_id = request.POST.get('dog_id')
 #         return render(request, 'eStore/payment.html', {'dog_id': dog_id})
+# sample typing
 
