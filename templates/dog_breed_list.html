@@ -120,32 +120,25 @@ button:hover {
 </head>
 <body>
    <h1>Get Bows!</h1>
-   <div class="dogs-container">
-        {%for breed in breeds %}
-    
-    <div class="dog-card">
-    <img style="height:300;width:300" src="{{ breed.image }}" alt="{{ breed.name }}">
-        <h3>{{breed.name }}</h3>
-        <p>{{breed.origin}}</p>
-        {% comment %} <ul>
-            <li>Height: 10-16 in</li>
-            <li>Weight: 18-22 lb</li>
-            <li>Length: 19-40 in</li>
-            <li>Life: 10 yrs</li>
-        </ul> {% endcomment %}
-        <p>Size:{{breed.size}}</p>
-        {% comment %} <form action="{% url 'payment' %}" method="POST"> {% endcomment %}
-  {% csrf_token %}
+  <div class="dogs-container">
+    {% for breed in breeds %}
+        <div class="dog-card">
+            <img style="height:300px; width:300px;" src="{{ breed.image }}" alt="{{ breed.name }}">
+            <h3>{{ breed.name }}</h3>
+            <p>{{ breed.origin }}</p>
+            <p>Size: {{ breed.size }}</p>
 
+            {% comment %} <p style="text-align: center; font-weight: bold;"></p> {% endcomment %}
+            <a href="/" style="text-decoration: none;">{{ breed.category.name }}</a>
+            <a href="{% url 'detail' slug=breed.slug %}" style="text-decoration: none;">
+                <button>Buy</button>
+            </a>
+        </div>
+    {% empty %}
+        <p>No species available right now.</p>
+    {% endfor %}
+</div>
 
-<a href="{% url 'detail' slug=breed.slug %}" class="btn btn-primary">Buy</a>
-<a class="text-decoration-none text-dark fw-bold" href="#" style="padding: 10px;">{{ breed.category.name }}</a>
-    </div>
-{% empty %}
-<p>No species available right now .</p>
-
- {% endfor %}    
-   
-   </div>
 </body>
 </html>
+ 
