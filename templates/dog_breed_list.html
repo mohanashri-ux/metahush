@@ -130,7 +130,7 @@ button:hover {
 
             {% comment %} <p style="text-align: center; font-weight: bold;"></p> {% endcomment %}
             <a href="/" style="text-decoration: none;">{{ breed.category.name }}</a>
-            <a href="{% url 'detail' slug=breed.slug %}" style="text-decoration: none;">
+            <a href="{% url 'detail' species='dog' slug=breed.slug %}" style="text-decoration: none;">
                 <button>Buy</button>
             </a>
         </div>

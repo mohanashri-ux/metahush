@@ -54,3 +54,96 @@ class LoginData(models.Model):
     def __str__(self):
         return self.email
 
+# from django.db import models
+# from django.utils.text import slugify
+# from .models import Category  # adjust import if Category is in another app
+
+class CatBreed(models.Model):
+    name = models.CharField(max_length=100)
+    origin = models.CharField(max_length=500, blank=True, null=True)
+    size = models.CharField(max_length=20, choices=[
+        ('small', 'Small'),
+        ('medium', 'Medium'),
+        ('large', 'Large'),
+    ])
+    image = models.ImageField(upload_to='cat_breeds/', blank=True, null=True)
+    slug = models.SlugField(unique=True)
+    category = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name='cat_breeds',
+        null=True,
+        blank=True
+    )
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+class FishBreed(models.Model):
+    SIZE_CHOICES = [
+        ('small', 'Small'),
+        ('medium', 'Medium'),
+        ('large', 'Large'),
+    ]
+
+    name = models.CharField(max_length=100)
+    origin = models.CharField(max_length=500, blank=True, null=True)
+    size = models.CharField(max_length=20, choices=SIZE_CHOICES)
+    image = models.ImageField(upload_to='fish_breeds/', blank=True, null=True)
+    slug = models.SlugField(unique=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='fish_breeds', null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
+class OtherBreed(models.Model):
+    SIZE_CHOICES = [
+        ('small', 'Small'),
+        ('medium', 'Medium'),
+        ('large', 'Large'),
+    ]
+
+    name = models.CharField(max_length=100)
+    origin = models.CharField(max_length=500, blank=True, null=True)
+    size = models.CharField(max_length=20, choices=SIZE_CHOICES)
+    image = models.ImageField(upload_to='other_breeds/', blank=True, null=True)
+    slug = models.SlugField(unique=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='other_breeds', null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
+class BirdBreed(models.Model):
+    SIZE_CHOICES = [
+        ('small', 'Small'),
+        ('medium', 'Medium'),
+        ('large', 'Large'),
+    ]
+
+    name = models.CharField(max_length=100)
+    origin = models.CharField(max_length=500, blank=True, null=True)
+    size = models.CharField(max_length=20, choices=SIZE_CHOICES)
+    image = models.ImageField(upload_to='bird_breeds/', blank=True, null=True)
+    slug = models.SlugField(unique=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='bird_breeds', null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name

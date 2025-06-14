@@ -47,13 +47,15 @@
 <ul style="list-style: none; padding-left: 0;">
   {% for related in related_breeds %}
     <li style="margin-bottom: 10px;">
-      <a href="{% url 'detail' slug=related.slug %}" 
+      <a href="{% url 'detail' species=species slug=related.slug %}"
          style="text-decoration: none; color: #4CAF50; font-weight: bold;"
          onmouseover="this.style.color='#388E3C'" 
          onmouseout="this.style.color='#4CAF50'">
          {{ related.name }}
       </a>
     </li>
+      {% empty %}
+    <li>No related breeds found.</li>
   {% endfor %}
 </ul>
 

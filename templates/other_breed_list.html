@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Other Pets</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fefae0;
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      color: #6b4f1d;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .other-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .other-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .other-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .other-card img {
+      height: 200px;
+      width: 300px;
+      object-fit: cover;
+      border-bottom: 2px solid #bc6c25;
+      transition: transform 0.3s ease;
+    }
+
+    .other-card:hover img {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      margin: 15px 10px;
+      color: #bc6c25;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 10px;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    a.category-link {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #7b3f00;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #bc6c25;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    button:hover {
+      background-color: #99582a;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .other-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .other-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Explore Other Pets</h1>
+  <div class="other-container">
+    {% for breed in breeds %}
+      <div class="other-card">
+        <img src="{{ breed.image }}" alt="{{ breed.name }}">
+        <h3>{{ breed.name }}</h3>
+        <p>Origin: {{ breed.origin }}</p>
+        <p>Size: {{ breed.size }}</p>
+        <a class="category-link" href="#">{{ breed.category.name }}</a>
+        <a href="{% url 'detail' species='other' slug=breed.slug %}">
+          <button>Adopt</button>
+        </a>
+      </div>
+    {% empty %}
+      <p>No pet breeds available right now.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

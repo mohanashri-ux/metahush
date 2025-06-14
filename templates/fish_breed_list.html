@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy Fishes</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #e0f7fa;
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      color: #006064;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .fish-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .fish-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .fish-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .fish-card img {
+      height: 200px;
+      width: 300px;
+      object-fit: cover;
+      border-bottom: 2px solid #00bcd4;
+      transition: transform 0.3s ease;
+    }
+
+    .fish-card:hover img {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      margin: 15px 10px;
+      color: #00838f;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 10px;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    a.category-link {
+      margin-left: 10px;
+      text-decoration: none;
+      color: #00695c;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #00acc1;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    button:hover {
+      background-color: #00838f;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .fish-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .fish-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Explore Beautiful Fishes</h1>
+  <div class="fish-container">
+    {% for breed in breeds %}
+      <div class="fish-card">
+        <img src="{{ breed.image }}" alt="{{ breed.name }}">
+        <h3>{{ breed.name }}</h3>
+        <p>Origin: {{ breed.origin }}</p>
+        <p>Size: {{ breed.size }}</p>
+        <a class="category-link" href="#">{{ breed.category.name }}</a>
+        <a href="{% url 'detail' species='fish' slug=breed.slug %}">
+          <button>Adopt</button>
+        </a>
+      </div>
+    {% empty %}
+      <p>No fish breeds available right now.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

@@ -59,12 +59,12 @@
           <li><a href="#team">Team</a></li>
           <li class="dropdown"><a href="#"><span>Order</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="http://127.0.0.1:8000/dog-breeds">Dogs</a></li>
+              <li><a href="{% url 'dog-breeds' %}">Dogs</a></li>
               
-              <li><a href="#">Cats</a></li>
-              <li><a href="#">Pisces</a></li>
-              <li><a href="#">Birds</a></li>
-              <li class="dropdown"><a href="#"><span>Others</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li><a href="{% url 'cat-breeds' %}">Cats</a></li>
+              <li><a href="{% url 'fish-breeds' %}">Fishes</a></li>
+              <li><a href="{% url 'bird-breeds' %}">Birds</a></li>
+              <li><a href="{% url 'other-breeds' %}">Others</a></li>
                 <ul>
                   <li><a href="#">Small mammals</a></li>
                   <li><a href="#">Reptiles</a></li>
