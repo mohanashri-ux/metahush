@@ -16,6 +16,10 @@ urlpatterns = [
     path('other-breeds', views.other_breed_list, name='other-breeds'),
     path('bird-breeds', views.bird_breed_list, name='bird-breeds'),
     path('<str:species>-breed/<slug:slug>/', views.detail, name='detail'),
+    path('appointment/', views.appointment_form, name='appointment_form'),
+    path('submit-appointment/', views.submit_appointment, name='submit_appointment'),
+    path('confirm-appointment/', views.confirm_appointment, name='confirm_appointment'),
+    path('', views.index, name='index'),  # assuming you have a home view
 
 
 

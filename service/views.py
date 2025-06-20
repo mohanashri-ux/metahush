@@ -9,6 +9,11 @@ from django.http import Http404
 from django.core.paginator import Paginator
 
 
+from .models import Appointment, Doctor
+from django.db.models import Count
+import random
+
+
 
 # Create your views here.
 def index(request):
@@ -141,3 +146,39 @@ def bird_breed_list(request):
 def other_breed_list(request):
     breeds = OtherBreed.objects.all()
     return render(request, 'other_breed_list.html', {'breeds': breeds})
+
+
+
+def appointment_form(request):
+    return render(request, 'appointment.html')
+
+def submit_appointment(request):
+    if request.method == 'POST':
+        appointment = Appointment.objects.create(
+            owner_name=request.POST['owner_name'],
+            pet_name=request.POST['pet_name'],
+            species=request.POST['species'],
+            breed=request.POST['breed'],
+            problem=request.POST['problem'],
+            phone=request.POST['phone'],
+            email=request.POST['email'],
+            address=request.POST['address'],
+            date=request.POST['date'],
+            time=request.POST['time']
+        )
+        random_doctor = Doctor.objects.order_by('?').first() # random doctor
+        return render(request, 'doctor.html', {
+            'doctor': random_doctor,
+            'appointment_id': appointment.id
+        })
+    return redirect('appointment_form')
+
+def confirm_appointment(request):
+    if request.method == 'POST':
+        # You can update the appointment record to assign doctor here
+        # Example:
+        appointment_id = request.POST['appointment_id']
+        doctor_id = request.POST['doctor_id']
+        # Save assignment (optional)
+        Appointment.objects.filter(id=appointment_id).update(doctor_id=doctor_id)
+        return redirect('index')  # or render with success message

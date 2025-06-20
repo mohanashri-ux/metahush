@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Assigned</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 400px;
+      text-align: center;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Doctor Assigned</h2>
+    <p><strong>Name:</strong> {{ doctor.name }}</p>
+    <p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+    <p><strong>Contact:</strong> {{ doctor.phone }}</p>
+    <p><strong>Hospital:</strong> {{ doctor.hospital }}</p>
+
+    <form method="post" action="{% url 'confirm_appointment' %}">
+      {% csrf_token %}
+      <input type="hidden" name="appointment_id" value="{{ appointment_id }}">
+      <input type="hidden" name="doctor_id" value="{{ doctor.id }}">
+      <button type="submit">Confirm</button>
+    </form>
+  </div>
+</body>
+</html>

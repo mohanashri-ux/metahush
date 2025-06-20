@@ -57,6 +57,7 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="{% url "appointment_form" %}" class="active">Fix appointment<br></a></li>
           <li class="dropdown"><a href="#"><span>Order</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="{% url 'dog-breeds' %}">Dogs</a></li>
@@ -104,7 +105,7 @@
             {% else %}
             <h1>Your Pet Deserves The Very Best</h1>
             {% endif %}
-            <p>premium pet services for buying, selling, medical care, and pet sitting all in one place.</p>
+            <p>premium pet services for buying, medical care, and pet sitting all in one place.</p>
            
           </div>
         </div>
@@ -941,6 +942,7 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="#hero">Home</a></li>
+          
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>

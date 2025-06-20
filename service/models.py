@@ -147,3 +147,37 @@ class BirdBreed(models.Model):
 
     def __str__(self):
         return self.name
+
+class Doctor(models.Model):
+    name = models.CharField(max_length=100)
+    specialization = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+    hospital = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Appointment(models.Model):
+    SPECIES_CHOICES = [
+        ('dog', 'Dog'),
+        ('cat', 'Cat'),
+        ('bird', 'Bird'),
+        ('fish', 'Fish'),
+        ('other', 'Other'),
+    ]
+
+    owner_name = models.CharField(max_length=100)
+    pet_name = models.CharField(max_length=100)
+    species = models.CharField(max_length=10, choices=SPECIES_CHOICES)
+    breed = models.CharField(max_length=100)
+    problem = models.TextField()
+    phone = models.CharField(max_length=15)
+    email = models.EmailField()
+    address = models.TextField()
+    date = models.DateField()
+    time = models.TimeField()
+    doctor = models.ForeignKey(Doctor, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.pet_name} - {self.owner_name}"
