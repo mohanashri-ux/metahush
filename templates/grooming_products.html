@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grooming Products</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fce4ec;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      color: #ad1457;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .products-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 2px solid #ec407a;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      margin: 15px 10px;
+      color: #880e4f;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 10px;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #c2185b;
+      margin-left: 10px;
+    }
+
+    button {
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    button:hover {
+      background-color: #ad1457;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .products-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Grooming Products</h1>
+  <div class="products-container">
+    {% for product in products %}
+      <div class="product-card">
+       {% if product.image %}
+  <img src="{% static 'assets/img/' %}{{ product.image }}" alt="{{ product.name }}">
+{% else %}
+  <img src="{% static 'default.jpg' %}" alt="No image">
+{% endif %}
+
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p class="price">₹{{ product.price }}</p>
+        <button>Order Now</button>
+      </div>
+    {% empty %}
+      <p>No grooming products available right now.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

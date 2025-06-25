@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Feature(models.Model):
@@ -181,3 +182,47 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"{self.pet_name} - {self.owner_name}"
+
+class GroomingProduct(models.Model):
+    name=models.CharField(max_length=100)
+    description=models.TextField()
+    price=models.DecimalField(max_digits=8,decimal_places=2)
+    image=models.ImageField(upload_to='grooming_products/',blank=True,null=True)
+    
+    def __str__(self):
+        return self.name
+    
+
+
+class PetMarket(models.Model):
+    SELL = 'Sell'
+    BUY = 'Buy'
+
+    LISTING_TYPE_CHOICES = [
+        (SELL, 'Sell'),
+        (BUY, 'Buy'),
+    ]
+
+    PET_CHOICES = [
+        ('Dog', 'Dog'),
+        ('Cat', 'Cat'),
+        ('Bird', 'Bird'),
+        ('Fish', 'Fish'),
+        ('Others', 'Others'),
+    ]
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pet_market_listings')
+    listing_type = models.CharField(max_length=10, choices=LISTING_TYPE_CHOICES, default=SELL)
+    pet_type = models.CharField(max_length=20, choices=PET_CHOICES)
+    breed = models.CharField(max_length=100)
+    age = models.DecimalField(max_digits=4, decimal_places=1, help_text="Age in years (e.g., 1.5)")
+    price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Selling price or offer")
+    description = models.TextField(blank=True)
+    contact_number = models.CharField(max_length=15)
+    city = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='pet_market/', blank=True, null=True)
+    available = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.listing_type} - {self.pet_type} ({self.breed}) by {self.user.username}"

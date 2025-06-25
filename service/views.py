@@ -7,6 +7,8 @@ from .forms import UserRegistrationForm
 from .models import DogBreed, CatBreed, FishBreed,BirdBreed,OtherBreed
 from django.http import Http404
 from django.core.paginator import Paginator
+from .models import GroomingProduct
+from .models import PetMarket
 
 
 from .models import Appointment, Doctor
@@ -182,3 +184,15 @@ def confirm_appointment(request):
         # Save assignment (optional)
         Appointment.objects.filter(id=appointment_id).update(doctor_id=doctor_id)
         return redirect('index')  # or render with success message
+
+
+def grooming_products(request):
+    products=GroomingProduct.objects.all()
+    # You can fetch product data from database if available
+    return render(request, 'grooming_products.html',{'products':products})
+
+
+def pet_market_list(request):
+    print("check")
+    pets = PetMarket.objects.filter(available=True).order_by('-created_at')
+    return render(request, 'pet_market_list.html', {'pets': pets})

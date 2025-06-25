@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Marketplace</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #e3f2fd;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      color: #1565c0;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .market-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .pet-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .pet-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .pet-card img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 2px solid #42a5f5;
+      transition: transform 0.3s ease;
+    }
+
+    .pet-card:hover img {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      margin: 15px 10px 5px;
+      color: #0d47a1;
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin: 8px 10px;
+      color: #555;
+    }
+
+    ul {
+      list-style: none;
+      margin: 10px;
+      padding-left: 0;
+      font-size: 0.9rem;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #e3f2fd;
+      color: #1565c0;
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      margin: 5px 10px;
+    }
+
+    .footer {
+      font-size: 0.8rem;
+      color: #888;
+      padding: 10px;
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .market-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .pet-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Pet Marketplace</h1>
+  <div class="market-container">
+    {% for pet in pets %}
+      <div class="pet-card">
+        {% if pet.image %}
+          <img src="{{ pet.image.url }}" alt="{{ pet.breed }}">
+        {% else %}
+          <img src="{% static 'default_pet.jpg' %}" alt="No image">
+        {% endif %}
+        <h3>{{ pet.pet_type }} - {{ pet.breed }}</h3>
+        <p>{{ pet.description|truncatewords:20 }}</p>
+        <ul>
+          <li><strong>Age:</strong> {{ pet.age }} yrs</li>
+          <li><strong>Price:</strong> ₹{{ pet.price }}</li>
+          <li><strong>City:</strong> {{ pet.city }}</li>
+          <li><strong>Contact:</strong> {{ pet.contact_number }}</li>
+        </ul>
+        <div class="badge">{{ pet.listing_type }}</div>
+        <div class="footer">Posted by {{ pet.user.username }} on {{ pet.created_at|date:"M d, Y" }}</div>
+      </div>
+    {% empty %}
+      <p>No pets available right now.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

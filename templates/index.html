@@ -277,7 +277,8 @@
 
     </section><!-- /Clients Section -->
 
-   <!-- Testimonials Section -->
+
+<!-- Testimonials Section -->
 <section id="testimonials" class="testimonials section">
 
   <!-- Section Title -->
@@ -325,8 +326,7 @@
               <span>Meta Hush helped me adopt a lovely beagle. The entire process was easy, and their vet partners made vaccinations stress-free.</span>
               <i class="bi bi-quote quote-icon-right"></i>
             </p>
-            {% comment %} commited herein img src that static thing {% endcomment %}
-            <img src="{% static "assets/img/testimonials/pet-owner1.jpg"%}" class="testimonial-img" alt="Pet Owner">
+            <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="Pet Owner">
             <h3>Priya Nair</h3>
             <h4>Pet Parent</h4>
           </div>
@@ -340,7 +340,7 @@
               <span>As a local groomer, Meta Hush brought in new clients I never would’ve reached. It's a perfect platform for pet care pros.</span>
               <i class="bi bi-quote quote-icon-right"></i>
             </p>
-            <img src="assets/img/testimonials/groomer.jpg" class="testimonial-img" alt="Groomer">
+            <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="Groomer">
             <h3>Rahul Verma</h3>
             <h4>Pet Groomer</h4>
           </div>
@@ -354,7 +354,7 @@
               <span>I listed my rescued kitten for adoption on Meta Hush and found the perfect home for her in less than a week!</span>
               <i class="bi bi-quote quote-icon-right"></i>
             </p>
-            <img src="assets/img/testimonials/rescuer.jpg" class="testimonial-img" alt="Rescuer">
+            <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="Rescuer">
             <h3>Neha Singh</h3>
             <h4>Pet Rescuer</h4>
           </div>
@@ -368,7 +368,7 @@
               <span>I travel often, and Meta Hush connected me with verified pet sitters nearby. Now I leave my pug worry-free!</span>
               <i class="bi bi-quote quote-icon-right"></i>
             </p>
-            <img src="assets/img/testimonials/pet-parent.jpg" class="testimonial-img" alt="Traveler">
+            <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="Traveler">
             <h3>Vikram Joshi</h3>
             <h4>Frequent Traveler & Dog Dad</h4>
           </div>
@@ -382,8 +382,8 @@
               <span>We partnered with Meta Hush as a veterinary clinic. It streamlined appointment bookings and brought in many new clients!</span>
               <i class="bi bi-quote quote-icon-right"></i>
             </p>
-            <img src="assets/img/testimonials/vet.jpg" class="testimonial-img" alt="Vet Clinic">
-            <h3>Dr. Meena Patel</h3>
+            <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="Vet Clinic">
+            <h3>Dr. Raghav Patel</h3>
             <h4>Veterinary Surgeon</h4>
           </div>
         </div>
@@ -415,25 +415,26 @@
           <div class="icon">
             <i class="bi bi-calendar2-check"></i>
           </div>
-          <a href="service-details.html" class="stretched-link">
+          <a href="{% url 'appointment_form' %}" class="stretched-link">
             <h3>Veterinary Appointments</h3>
           </a>
           <p>Book online appointments with certified veterinary professionals for consultations and medical care.</p>
         </div>
       </div>
 
-      <!-- Grooming & Products -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-item item-orange position-relative">
-          <div class="icon">
-            <i class="bi bi-scissors"></i>
-          </div>
-          <a href="service-details.html" class="stretched-link">
-            <h3>Grooming & Products</h3>
-          </a>
-          <p>Access premium grooming services and buy high-quality pet care products for every need.</p>
-        </div>
-      </div>
+   <!-- Grooming & Products -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+  <div class="service-item item-orange position-relative">
+    <div class="icon">
+      <i class="bi bi-scissors"></i>
+    </div>
+    <a href="{% url 'grooming-products' %}" class="stretched-link">
+      <h3>Grooming & Products</h3>
+    </a>
+    <p>Access premium grooming services and buy high-quality pet care products for every need.</p>
+  </div>
+</div>
+
 
       <!-- Pet Marketplace -->
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
@@ -441,7 +442,7 @@
           <div class="icon">
             <i class="bi bi-bag-heart"></i>
           </div>
-          <a href="service-details.html" class="stretched-link">
+          <a href="{% url 'pet_market_list' %}" class="stretched-link">
             <h3>Pet Marketplace</h3>
           </a>
           <p>Adopt or buy pets lovingly handed over by previous owners. All pets are verified and cared for before listing.</p>
@@ -452,7 +453,7 @@
       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
         <div class="service-item item-red position-relative">
           <div class="icon">
-            <i class="bi bi-shield-heart"></i>
+            <i class="bi bi-bag-heart"></i>
           </div>
           <a href="service-details.html" class="stretched-link">
             <h3>Pet Insurance</h3>
@@ -509,7 +510,9 @@
 </section>
 <!-- /Call To Action Section -->
 
-   <!-- Portfolio Section -->
+
+
+<!-- Portfolio Section -->
 <section id="portfolio" class="portfolio section">
 
   <!-- Section Title -->
@@ -532,66 +535,66 @@
 
         <!-- Pet Adoption -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-service">
-          <img src="assets/img/portfolio/pet-adoption.jpg" class="img-fluid" alt="Pet Adoption">
+          <img src="{% static 'assets/img/portfolio/app-1.jpg' %}" class="img-fluid" alt="Pet Adoption">
           <div class="portfolio-info">
             <h4>Pet Adoption</h4>
             <p>Adopt rescued and cared-for pets from local owners.</p>
-            <a href="assets/img/portfolio/pet-adoption.jpg" class="glightbox preview-link" title="Pet Adoption"><i class="bi bi-zoom-in"></i></a>
+            <a href="{% static 'assets/img/portfolio/app-1.jpg' %}" class="glightbox preview-link" title="Pet Adoption"><i class="bi bi-zoom-in"></i></a>
             <a href="portfolio-details.html#adoption" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>
           </div>
         </div>
 
         <!-- Veterinary Appointments -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-service">
-          <img src="assets/img/portfolio/vet-service.jpg" class="img-fluid" alt="Vet Services">
+          <img src="{% static 'assets/img/portfolio/books-1.jpg' %}" class="img-fluid" alt="Vet Services">
           <div class="portfolio-info">
             <h4>Veterinary Services</h4>
             <p>Book vet appointments from your home anytime.</p>
-            <a href="assets/img/portfolio/vet-service.jpg" class="glightbox preview-link" title="Veterinary Services"><i class="bi bi-zoom-in"></i></a>
+            <a href="{% static 'assets/img/portfolio/books-1.jpg' %}" class="glightbox preview-link" title="Veterinary Services"><i class="bi bi-zoom-in"></i></a>
             <a href="portfolio-details.html#vet" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>
           </div>
         </div>
 
         <!-- Pet Grooming -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-service">
-          <img src="assets/img/portfolio/grooming.jpg" class="img-fluid" alt="Pet Grooming">
+          <img src="{% static 'assets/img/portfolio/branding-1.jpg' %}" class="img-fluid" alt="Pet Grooming">
           <div class="portfolio-info">
             <h4>Pet Grooming</h4>
             <p>Buy top grooming products or schedule grooming sessions.</p>
-            <a href="assets/img/portfolio/grooming.jpg" class="glightbox preview-link" title="Pet Grooming"><i class="bi bi-zoom-in"></i></a>
+            <a href="{% static 'assets/img/portfolio/branding-1.jpg' %}" class="glightbox preview-link" title="Pet Grooming"><i class="bi bi-zoom-in"></i></a>
             <a href="portfolio-details.html#grooming" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>
           </div>
         </div>
 
         <!-- Pet Products -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-          <img src="assets/img/portfolio/pet-products.jpg" class="img-fluid" alt="Pet Products">
+          <img src="{% static 'assets/img/portfolio/product-1.jpg' %}" class="img-fluid" alt="Pet Products">
           <div class="portfolio-info">
             <h4>Pet Essentials</h4>
             <p>Shop food, toys, and pet care items in one place.</p>
-            <a href="assets/img/portfolio/pet-products.jpg" class="glightbox preview-link" title="Pet Essentials"><i class="bi bi-zoom-in"></i></a>
+            <a href="{% static 'assets/img/portfolio/products-1.jpg' %}" class="glightbox preview-link" title="Pet Essentials"><i class="bi bi-zoom-in"></i></a>
             <a href="portfolio-details.html#products" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>
           </div>
         </div>
 
         <!-- Community Connect -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-connect">
-          <img src="assets/img/portfolio/community-connect.jpg" class="img-fluid" alt="Community Connect">
+          <img src="{% static 'assets/img/portfolio/app-1.jpg' %}" class="img-fluid" alt="Community Connect">
           <div class="portfolio-info">
             <h4>Pet Community</h4>
             <p>Connect with other pet lovers and share updates.</p>
-            <a href="assets/img/portfolio/community-connect.jpg" class="glightbox preview-link" title="Community"><i class="bi bi-zoom-in"></i></a>
+            <a href="{% static 'assets/img/portfolio/app-1.jpg' %}" class="glightbox preview-link" title="Community"><i class="bi bi-zoom-in"></i></a>
             <a href="portfolio-details.html#community" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>
           </div>
         </div>
 
         <!-- Insurance -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-service">
-          <img src="assets/img/portfolio/pet-insurance.jpg" class="img-fluid" alt="Pet Insurance">
+          <img src="{% static 'assets/img/portfolio/books-1.jpg' %}" class="img-fluid" alt="Pet Insurance">
           <div class="portfolio-info">
             <h4>Pet Insurance</h4>
             <p>Secure your pet’s health with flexible insurance options.</p>
-            <a href="assets/img/portfolio/pet-insurance.jpg" class="glightbox preview-link" title="Pet Insurance"><i class="bi bi-zoom-in"></i></a>
+            <a href="{% static 'assets/img/portfolio/books-1.jpg' %}" class="glightbox preview-link" title="Pet Insurance"><i class="bi bi-zoom-in"></i></a>
             <a href="portfolio-details.html#insurance" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>
           </div>
         </div>
@@ -602,7 +605,9 @@
 </section>
 <!-- /Portfolio Section -->
 
-    <!-- Team Section -->
+
+
+<!-- Team Section -->
 <section id="team" class="team section light-background">
 
   <!-- Section Title -->
@@ -612,13 +617,13 @@
   </div><!-- End Section Title -->
 
   <div class="container">
-
     <div class="row gy-4">
 
+      <!-- Team Member 1 -->
       <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
         <div class="team-member">
           <div class="member-img">
-            <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="Project Lead - Ananya">
+            <img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt="Project Lead - Ananya">
             <div class="social">
               <a href="https://twitter.com/ananya_meta" target="_blank"><i class="bi bi-twitter"></i></a>
               <a href="https://facebook.com/ananya.meta" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -633,10 +638,11 @@
         </div>
       </div><!-- End Team Member -->
 
+      <!-- Team Member 2 -->
       <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
         <div class="team-member">
           <div class="member-img">
-            <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="Product Manager - Rahul">
+            <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt="Product Manager - Rahul">
             <div class="social">
               <a href="https://twitter.com/rahul_meta" target="_blank"><i class="bi bi-twitter"></i></a>
               <a href="https://facebook.com/rahul.meta" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -651,10 +657,11 @@
         </div>
       </div><!-- End Team Member -->
 
+      <!-- Team Member 3 -->
       <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
         <div class="team-member">
           <div class="member-img">
-            <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="CTO - Sneha">
+            <img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt="CTO - Sneha">
             <div class="social">
               <a href="https://twitter.com/sneha_meta" target="_blank"><i class="bi bi-twitter"></i></a>
               <a href="https://facebook.com/sneha.meta" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -669,10 +676,11 @@
         </div>
       </div><!-- End Team Member -->
 
+      <!-- Team Member 4 -->
       <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
         <div class="team-member">
           <div class="member-img">
-            <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="Community Manager - Arjun">
+            <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="Community Manager - Arjun">
             <div class="social">
               <a href="https://twitter.com/arjun_meta" target="_blank"><i class="bi bi-twitter"></i></a>
               <a href="https://facebook.com/arjun.meta" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -688,9 +696,7 @@
       </div><!-- End Team Member -->
 
     </div>
-
   </div>
-
 </section><!-- /Team Section -->
 
 

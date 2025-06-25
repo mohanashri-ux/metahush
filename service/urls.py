@@ -20,6 +20,8 @@ urlpatterns = [
     path('submit-appointment/', views.submit_appointment, name='submit_appointment'),
     path('confirm-appointment/', views.confirm_appointment, name='confirm_appointment'),
     path('', views.index, name='index'),  # assuming you have a home view
+    path('grooming-products/',views.grooming_products,name='grooming-products'),
+    path('pet-market/', views.pet_market_list, name='pet_market_list'),
 
 
 
