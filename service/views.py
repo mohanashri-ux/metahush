@@ -9,6 +9,9 @@ from django.http import Http404
 from django.core.paginator import Paginator
 from .models import GroomingProduct
 from .models import PetMarket
+from .models import PetSittingService
+from .forms import PetSittingServiceForm
+from datetime import timedelta
 
 
 from .models import Appointment, Doctor
@@ -196,3 +199,35 @@ def pet_market_list(request):
     print("check")
     pets = PetMarket.objects.filter(available=True).order_by('-created_at')
     return render(request, 'pet_market_list.html', {'pets': pets})
+
+def calculate_cost(sitting_type,days):
+    if sitting_type=='home':
+        return days * 500
+    elif sitting_type=='care':
+        return days*800
+    return 0
+
+def book_pet_sitting(request):
+    if request.method == 'POST':
+        form = PetSittingServiceForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            days = (instance.to_date - instance.from_date).days + 1
+            instance.cost = calculate_cost(instance.sitting_type, days)
+            instance.save()
+            return render(request, 'confirm_booking.html', {'booking': instance})
+    else:
+        form = PetSittingServiceForm()
+
+    return render(request, 'pet_sitting_form.html', {'form': form})
+
+def payment_page(request):
+    booking_id = request.GET.get('booking_id')
+    booking = get_object_or_404(PetSittingService, id=booking_id)
+
+    if request.method == 'POST':
+        method = request.POST.get('payment_method')
+        # You could save this info to DB, redirect, or mock confirmation
+        return render(request, 'payment_successful.html', {'booking': booking, 'method': method})
+
+    return render(request, 'payment_page.html', {'booking': booking})

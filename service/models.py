@@ -226,3 +226,28 @@ class PetMarket(models.Model):
 
     def __str__(self):
         return f"{self.listing_type} - {self.pet_type} ({self.breed}) by {self.user.username}"
+
+class PetSittingService(models.Model):
+    SITTING_TYPE_CHOICES=[
+        ('home','Home Sitting'),
+        ('care','Care Centre'),
+    ]
+    
+    owner_name=models.CharField(max_length=100)
+    email=models.EmailField()
+    phone=models.CharField(max_length=10)
+    location=models.CharField(max_length=100)
+    
+    pet_name=models.CharField(max_length=100)
+    category=models.CharField(max_length=50)
+    species=models.CharField(max_length=50)
+    age=models.PositiveIntegerField()
+    
+    sitting_type=models.CharField(max_length=10,choices=SITTING_TYPE_CHOICES)
+    from_date=models.DateField()
+    to_date=models.DateField()
+    # cost=models.DecimalField(max_digits=8,decimal_places=2,blank=True,null=True)
+    
+    def __str__(self):
+        return f"{self.owner_name}'s pet: {self.pet_name}"
+    

@@ -22,6 +22,8 @@ urlpatterns = [
     path('', views.index, name='index'),  # assuming you have a home view
     path('grooming-products/',views.grooming_products,name='grooming-products'),
     path('pet-market/', views.pet_market_list, name='pet_market_list'),
+    path('book-sitting/',views.book_pet_sitting,name='book_pet_sitting'),
+    path('payment/', views.payment_page, name='payment_page'),
 
 
 
