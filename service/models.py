@@ -251,3 +251,34 @@ class PetSittingService(models.Model):
     def __str__(self):
         return f"{self.owner_name}'s pet: {self.pet_name}"
     
+
+
+class PetInsurance(models.Model):
+    PLAN_CHOICES = [
+        ('basic', 'Basic Plan'),
+        ('standard', 'Standard Plan'),
+        ('premium', 'Premium Plan'),
+    ]
+
+    owner_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=10)
+    pet_name = models.CharField(max_length=100)
+    breed = models.CharField(max_length=100)
+    age = models.PositiveIntegerField()
+    pre_existing_conditions = models.TextField(blank=True, null=True)
+    selected_plan = models.CharField(max_length=10, choices=PLAN_CHOICES)
+    applied_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.owner_name} - {self.pet_name} ({self.selected_plan})"
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    submitted_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"

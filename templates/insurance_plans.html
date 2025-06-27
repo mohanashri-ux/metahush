@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Insurance Plans</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-title {
+            font-weight: bold;
+        }
+        .pricing-card {
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .pricing-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Our Pet Insurance Plans</h1>
+    <p class="text-center text-muted mb-5">Choose the best plan to keep your furry friend protected and healthy.</p>
+
+    <div class="row g-4">
+        <!-- Basic Plan -->
+        <div class="col-md-4">
+            <div class="card pricing-card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="card-title text-primary">Basic Plan</h3>
+                    <h4 class="text-success">₹199/month</h4>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>✔ Accidental injuries</li>
+                        <li>✔ Minor illnesses</li>
+                        <li>✖ Vaccinations</li>
+                        <li>✖ Hospitalization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Standard Plan -->
+        <div class="col-md-4">
+            <div class="card pricing-card h-100 shadow">
+                <div class="card-body text-center">
+                    <h3 class="card-title text-warning">Standard Plan</h3>
+                    <h4 class="text-success">₹399/month</h4>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>✔ All from Basic Plan</li>
+                        <li>✔ Vaccinations & check-ups</li>
+                        <li>✔ Limited hospitalization</li>
+                        <li>✖ Major surgeries</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="col-md-4">
+            <div class="card pricing-card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <h3 class="card-title text-danger">Premium Plan</h3>
+                    <h4 class="text-success">₹699/month</h4>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>✔ Everything from Standard</li>
+                        <li>✔ Major surgeries & chronic illness</li>
+                        <li>✔ Emergency coverage</li>
+                        <li>✔ Full hospitalization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{% url 'pet_insurance' %}" class="btn btn-lg btn-primary">Apply for Pet Insurance</a>
+    </div>
+</div>
+</body>
+</html>

@@ -12,6 +12,8 @@ from .models import PetMarket
 from .models import PetSittingService
 from .forms import PetSittingServiceForm
 from datetime import timedelta
+from .forms import PetInsuranceForm
+from .forms import FeedbackForm
 
 
 from .models import Appointment, Doctor
@@ -231,3 +233,30 @@ def payment_page(request):
         return render(request, 'payment_successful.html', {'booking': booking, 'method': method})
 
     return render(request, 'payment_page.html', {'booking': booking})
+
+
+def insurance_plans_page(request):
+    return render(request, 'insurance_plans.html')
+
+
+def pet_insurance_view(request):
+    if request.method == 'POST':
+        form = PetInsuranceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'insurance_success.html')
+    else:
+        form = PetInsuranceForm()
+    return render(request, 'pet_insurance.html', {'form': form})
+
+
+
+def feedback_view(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'feedback_success.html')
+    else:
+        form = FeedbackForm()
+    return render(request, 'feedback.html', {'form': form})

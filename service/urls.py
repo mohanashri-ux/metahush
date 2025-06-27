@@ -24,6 +24,9 @@ urlpatterns = [
     path('pet-market/', views.pet_market_list, name='pet_market_list'),
     path('book-sitting/',views.book_pet_sitting,name='book_pet_sitting'),
     path('payment/', views.payment_page, name='payment_page'),
+    path('insurance/', views.pet_insurance_view, name='pet_insurance'),
+    path('insurance/plans/', views.insurance_plans_page, name='insurance_plans'),
+    path('feedback/', views.feedback_view, name='feedback'),
 
 
 
