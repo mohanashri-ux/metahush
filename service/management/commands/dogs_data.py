@@ -2,7 +2,7 @@ from typing import Any
 from service.models import DogBreed,Category
 from django.core.management.base import BaseCommand
 import random
-
+from django.templatetags.static import static
 
     
 class Command(BaseCommand):
@@ -62,18 +62,17 @@ class Command(BaseCommand):
 
         images=[
             # dogs
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-            "https://picsum.photos/id/237/800/400",
-          
+            static("assets/img/dogs_img/labrador.jpg"),
+            static("assets/img/dogs_img/GermanShepherd.jpg"),
+            static("assets/img/dogs_img/GoldenRetriever.jpg"),
+            static("assets/img/dogs_img/Bulldog.jpg"),
+            static("assets/img/dogs_img/Poodle.jpg"),
+            static("assets/img/dogs_img/Beagle.jpg"),
+            static("assets/img/dogs_img/Rottweiler.jpg"),
+            static("assets/img/dogs_img/Dachshund.jpg"),
+            static("assets/img/dogs_img/SiberianHusky.jpg"),
+            static("assets/img/dogs_img/ShihTzu.jpg"),
+
     # {
     #     "image": ["https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg"]
     # },

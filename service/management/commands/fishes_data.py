@@ -2,7 +2,7 @@ from typing import Any
 from service.models import FishBreed,Category
 from django.core.management.base import BaseCommand
 import random
-
+from django.templatetags.static import static
 
     
 class Command(BaseCommand):
@@ -66,16 +66,16 @@ class Command(BaseCommand):
         images=[
             
             # fishes
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
-            "https://picsum.photos/id/218/800/400",
+            static("assets/img/fishes_img/Goldfish.jpg"),
+            static("assets/img/fishes_img/Betta.jpg"),
+            static("assets/img/fishes_img/Guppy.jpg"),
+            static("assets/img/fishes_img/Koi.jpg"),
+            static("assets/img/fishes_img/Angelfish.jpg"),
+            static("assets/img/fishes_img/NeonTetra.jpg"),
+            static("assets/img/fishes_img/Discus.jpg"),
+            static("assets/img/fishes_img/Clownfish.jpg"),
+            static("assets/img/fishes_img/Molly.jpg"),
+            static("assets/img/fishes_img/Swordtail.jpg"),
             
 ]
 

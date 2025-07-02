@@ -2,6 +2,7 @@ from typing import Any
 from service.models import BirdBreed,Category
 from django.core.management.base import BaseCommand
 import random
+from django.templatetags.static import static
 
 
     
@@ -68,16 +69,16 @@ class Command(BaseCommand):
         images=[
            
             # birds
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
-            "https://picsum.photos/id/50/800/400",
+            static("assets/img/birds_img/Parakeet.jpg"),
+            static("assets/img/birds_img/Canary.jpg"),
+            static("assets/img/birds_img/Cockatiel.jpg"),
+            static("assets/img/birds_img/Lovebird.jpg"),
+            static("assets/img/birds_img/AfricanGreyParrot.jpg"),
+            static("assets/img/birds_img/Macaw.jpg"),
+            static("assets/img/birds_img/Finch.jpg"),
+            static("assets/img/birds_img/Cockatoo.jpg"),
+            static("assets/img/birds_img/QuakerParrot.jpg"),
+            static("assets/img/birds_img/AmazonParrot.jpg"),
             
    
 ]

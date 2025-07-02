@@ -2,7 +2,7 @@ from typing import Any
 from service.models import OtherBreed,Category
 from django.core.management.base import BaseCommand
 import random
-
+from django.templatetags.static import static
 
     
 class Command(BaseCommand):
@@ -51,12 +51,12 @@ class Command(BaseCommand):
         images=[
             
             # others
-            "https://picsum.photos/id/244/800/400",
-            "https://picsum.photos/id/258/800/400",
-            "https://picsum.photos/id/275/800/400",
-            "https://picsum.photos/id/433/800/400",
-            "https://picsum.photos/id/477/800/400",
-   
+            static("assets/img/others_img/Smallmammals.jpg"),
+            static("assets/img/others_img/Reptiles.jpg"),
+            static("assets/img/others_img/Amphibians.jpg"),
+            static("assets/img/others_img/Giantmammals.jpg"),
+            static("assets/img/others_img/Exoticbirds.jpg"),
+            
 ]
 
         categories=Category.objects.all()

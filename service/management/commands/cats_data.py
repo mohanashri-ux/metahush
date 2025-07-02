@@ -3,7 +3,7 @@ from service.models import CatBreed,Category
 from django.core.management.base import BaseCommand
 import random
 
-
+from django.templatetags.static import static
     
 class Command(BaseCommand):
     help="This command inserts catbreed data"
@@ -66,16 +66,16 @@ class Command(BaseCommand):
         images=[
            
             # cats
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
-            "https://picsum.photos/id/40/800/400",
+            static("assets/img/cats_img/PersianCat.jpg"),
+            static("assets/img/cats_img/SiameseCat.jpg"),
+            static("assets/img/cats_img/MaineCoon.jpg"),
+            static("assets/img/cats_img/BengalCat.jpg"),
+            static("assets/img/cats_img/Ragdoll.jpg"),
+            static("assets/img/cats_img/BritishShorthair.jpg"),
+            static("assets/img/cats_img/Sphynx.jpg"),
+            static("assets/img/cats_img/ScottishFold.jpg"),
+            static("assets/img/cats_img/Abyssinian.jpg"),
+            static("assets/img/cats_img/NorwegianForestCat.jpg"),
             
    
 

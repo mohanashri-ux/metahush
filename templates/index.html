@@ -10,11 +10,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
-  {% comment %} <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon"> {% endcomment %}
 
-  <!-- Fonts -->
    
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -30,13 +26,6 @@
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: OnePage
-  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -45,9 +34,8 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Meta Hush</h1>
+
+        <h1 class="sitename"><a href="#">Meta Hush</a></h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -95,7 +83,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section">
 
-      {% comment %} <img src="assets/img/hero-bg-abstract.jpg" alt="" data-aos="fade-in" class=""> {% endcomment %}
+
 
       <div class="container">
         <div class="row justify-content-center" data-aos="zoom-out">
@@ -168,46 +156,6 @@
 
 </section><!-- /About Section -->
 
-    <!-- Stats Section -->
-<section id="stats" class="stats section light-background">
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="1200" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Happy Pet Parents</p>
-        </div>
-      </div><!-- End Stats Item -->
-
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="3500" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Appointments Booked</p>
-        </div>
-      </div><!-- End Stats Item -->
-
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="7800" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Hours of Support</p>
-        </div>
-      </div><!-- End Stats Item -->
-
-      <div class="col-lg-3 col-md-6">
-        <div class="stats-item text-center w-100 h-100">
-          <span data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Pet Care Experts</p>
-        </div>
-      </div><!-- End Stats Item -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Stats Section -->
 
     <!-- About Alt Section -->
     <section id="about-alt" class="about-alt section">
@@ -216,7 +164,7 @@
 
         <div class="row gy-4">
           <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
+            <img src="{% static 'assets/img/coverimg.jpg' %}" class="img-fluid" alt="">
             <a href="https://youtu.be/7Gfoij2uP7I?si=TQEM7UeQawnWMnr_" class="glightbox pulsating-play-btn"></a>
           </div>
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
@@ -239,163 +187,6 @@
       </div>
 
     </section><!-- /About Alt Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section light-background">
-
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{% static 'assets/img/clients/client-1.png' %}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{% static 'assets/img/clients/client-2.png' %}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{% static 'assets/img/clients/client-3.png' %}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{% static 'assets/img/clients/client-4.png' %}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{% static 'assets/img/clients/client-5.png' %}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6 client-logo">
-            <img src="{% static 'assets/img/clients/client-6.png' %}" class="img-fluid" alt="">
-          </div><!-- End Client Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
-
-<!-- Testimonials Section -->
-<section id="testimonials" class="testimonials section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Testimonials</h2>
-    <p>What our pet lovers and service providers say about Meta Hush</p>
-  </div><!-- End Section Title -->
-
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="swiper init-swiper" data-speed="600" data-delay="5000" data-breakpoints='{ "320": { "slidesPerView": 1, "spaceBetween": 40 }, "1200": { "slidesPerView": 3, "spaceBetween": 40 } }'>
-      <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 600,
-          "autoplay": {
-            "delay": 5000
-          },
-          "slidesPerView": "auto",
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "breakpoints": {
-            "320": {
-              "slidesPerView": 1,
-              "spaceBetween": 40
-            },
-            "1200": {
-              "slidesPerView": 3,
-              "spaceBetween": 20
-            }
-          }
-        }
-      </script>
-
-      <div class="swiper-wrapper">
-
-        <!-- Testimonial 1 -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>Meta Hush helped me adopt a lovely beagle. The entire process was easy, and their vet partners made vaccinations stress-free.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="Pet Owner">
-            <h3>Priya Nair</h3>
-            <h4>Pet Parent</h4>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>As a local groomer, Meta Hush brought in new clients I never would’ve reached. It's a perfect platform for pet care pros.</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="Groomer">
-            <h3>Rahul Verma</h3>
-            <h4>Pet Groomer</h4>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>I listed my rescued kitten for adoption on Meta Hush and found the perfect home for her in less than a week!</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="Rescuer">
-            <h3>Neha Singh</h3>
-            <h4>Pet Rescuer</h4>
-          </div>
-        </div>
-
-        <!-- Testimonial 4 -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>I travel often, and Meta Hush connected me with verified pet sitters nearby. Now I leave my pug worry-free!</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="Traveler">
-            <h3>Vikram Joshi</h3>
-            <h4>Frequent Traveler & Dog Dad</h4>
-          </div>
-        </div>
-
-        <!-- Testimonial 5 -->
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <p>
-              <i class="bi bi-quote quote-icon-left"></i>
-              <span>We partnered with Meta Hush as a veterinary clinic. It streamlined appointment bookings and brought in many new clients!</span>
-              <i class="bi bi-quote quote-icon-right"></i>
-            </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="Vet Clinic">
-            <h3>Dr. Raghav Patel</h3>
-            <h4>Veterinary Surgeon</h4>
-          </div>
-        </div>
-
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-
-  </div>
-
-</section><!-- /Testimonials Section -->
-
 
     <!-- Services Section -->
 <section id="services" class="services section light-background">
@@ -539,14 +330,14 @@
           <div class="portfolio-info">
             <h4>Pet Adoption</h4>
             <p>Adopt rescued and cared-for pets from local owners.</p>
-            <a href="{% static 'assets/img/portfolio/app-1.jpg' %}" class="glightbox preview-link" title="Pet Adoption"><i class="bi bi-zoom-in"></i></a>
+            <a href="{% static 'assets/img/portfolio/adoption.jpg' %}" class="glightbox preview-link" title="Pet Adoption"><i class="bi bi-zoom-in"></i></a>
             <a href="portfolio-details.html#adoption" class="details-link" title="More Details"><i class="bi bi-link-45deg"></i></a>
           </div>
         </div>
 
         <!-- Veterinary Appointments -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-service">
-          <img src="{% static 'assets/img/portfolio/books-1.jpg' %}" class="img-fluid" alt="Vet Services">
+          <img src="{% static 'assets/img/portfolio/veterinary.jpg' %}" class="img-fluid" alt="Vet Services">
           <div class="portfolio-info">
             <h4>Veterinary Services</h4>
             <p>Book vet appointments from your home anytime.</p>
@@ -557,7 +348,7 @@
 
         <!-- Pet Grooming -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-service">
-          <img src="{% static 'assets/img/portfolio/branding-1.jpg' %}" class="img-fluid" alt="Pet Grooming">
+          <img src="{% static 'assets/img/portfolio/grooming.jpg' %}" class="img-fluid" alt="Pet Grooming">
           <div class="portfolio-info">
             <h4>Pet Grooming</h4>
             <p>Buy top grooming products or schedule grooming sessions.</p>
@@ -568,7 +359,7 @@
 
         <!-- Pet Products -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-          <img src="{% static 'assets/img/portfolio/product-1.jpg' %}" class="img-fluid" alt="Pet Products">
+          <img src="{% static 'assets/img/portfolio/essentials.jpg' %}" class="img-fluid" alt="Pet Products">
           <div class="portfolio-info">
             <h4>Pet Essentials</h4>
             <p>Shop food, toys, and pet care items in one place.</p>
@@ -579,7 +370,7 @@
 
         <!-- Community Connect -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-connect">
-          <img src="{% static 'assets/img/portfolio/app-1.jpg' %}" class="img-fluid" alt="Community Connect">
+          <img src="{% static 'assets/img/portfolio/community.jpg' %}" class="img-fluid" alt="Community Connect">
           <div class="portfolio-info">
             <h4>Pet Community</h4>
             <p>Connect with other pet lovers and share updates.</p>
@@ -590,7 +381,7 @@
 
         <!-- Insurance -->
         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-service">
-          <img src="{% static 'assets/img/portfolio/books-1.jpg' %}" class="img-fluid" alt="Pet Insurance">
+          <img src="{% static 'assets/img/portfolio/insurance.jpg' %}" class="img-fluid" alt="Pet Insurance">
           <div class="portfolio-info">
             <h4>Pet Insurance</h4>
             <p>Secure your pet’s health with flexible insurance options.</p>
@@ -607,162 +398,6 @@
 
 
 
-<!-- Team Section -->
-<section id="team" class="team section light-background">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Meta Hush Team</h2>
-    <p>Meet the passionate team behind Meta Hush, committed to creating the best pet care and adoption platform.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-    <div class="row gy-4">
-
-      <!-- Team Member 1 -->
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-        <div class="team-member">
-          <div class="member-img">
-            <img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt="Project Lead - Ananya">
-            <div class="social">
-              <a href="https://twitter.com/ananya_meta" target="_blank"><i class="bi bi-twitter"></i></a>
-              <a href="https://facebook.com/ananya.meta" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://instagram.com/ananya_meta" target="_blank"><i class="bi bi-instagram"></i></a>
-              <a href="https://linkedin.com/in/ananya-meta" target="_blank"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4>Ananya Sharma</h4>
-            <span>Project Lead & Founder</span>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <!-- Team Member 2 -->
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-        <div class="team-member">
-          <div class="member-img">
-            <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt="Product Manager - Rahul">
-            <div class="social">
-              <a href="https://twitter.com/rahul_meta" target="_blank"><i class="bi bi-twitter"></i></a>
-              <a href="https://facebook.com/rahul.meta" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://instagram.com/rahul_meta" target="_blank"><i class="bi bi-instagram"></i></a>
-              <a href="https://linkedin.com/in/rahul-meta" target="_blank"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4>Rahul Verma</h4>
-            <span>Product Manager</span>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <!-- Team Member 3 -->
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-        <div class="team-member">
-          <div class="member-img">
-            <img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt="CTO - Sneha">
-            <div class="social">
-              <a href="https://twitter.com/sneha_meta" target="_blank"><i class="bi bi-twitter"></i></a>
-              <a href="https://facebook.com/sneha.meta" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://instagram.com/sneha_meta" target="_blank"><i class="bi bi-instagram"></i></a>
-              <a href="https://linkedin.com/in/sneha-meta" target="_blank"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4>Sneha Kapoor</h4>
-            <span>Chief Technology Officer</span>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <!-- Team Member 4 -->
-      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-        <div class="team-member">
-          <div class="member-img">
-            <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt="Community Manager - Arjun">
-            <div class="social">
-              <a href="https://twitter.com/arjun_meta" target="_blank"><i class="bi bi-twitter"></i></a>
-              <a href="https://facebook.com/arjun.meta" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://instagram.com/arjun_meta" target="_blank"><i class="bi bi-instagram"></i></a>
-              <a href="https://linkedin.com/in/arjun-meta" target="_blank"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4>Arjun Mehta</h4>
-            <span>Community & Support Manager</span>
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-    </div>
-  </div>
-</section><!-- /Team Section -->
-
-
-  <!-- Pricing Section -->
-<section id="pricing" class="pricing section">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Pricing Plans</h2>
-    <p>Choose the perfect plan to access our premium pet care, vet services, and adoption platform features.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row g-4 g-lg-0">
-
-      <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-        <div class="pricing-item">
-          <h3>Basic Plan</h3>
-          <h4><sup>₹</sup>0<span> / month</span></h4>
-          <ul>
-            <li><i class="bi bi-check"></i> <span>Access to pet adoption listings</span></li>
-            <li><i class="bi bi-check"></i> <span>Community forums & support</span></li>
-            <li><i class="bi bi-check"></i> <span>Basic pet care tips and guides</span></li>
-            <li class="na"><i class="bi bi-x"></i> <span>Appointment booking with vets</span></li>
-            <li class="na"><i class="bi bi-x"></i> <span>Priority customer support</span></li>
-          </ul>
-          <div class="text-center"><a href="#" class="buy-btn">Get Started</a></div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-      <div class="col-lg-4 featured" data-aos="zoom-in" data-aos-delay="200">
-        <div class="pricing-item">
-          <h3>Premium Plan</h3>
-          <h4><sup>₹</sup>499<span> / month</span></h4>
-          <ul>
-            <li><i class="bi bi-check"></i> <span>All Basic Plan features</span></li>
-            <li><i class="bi bi-check"></i> <span>Unlimited vet appointments & consultations</span></li>
-            <li><i class="bi bi-check"></i> <span>Exclusive grooming & pet care discounts</span></li>
-            <li><i class="bi bi-check"></i> <span>Priority customer support</span></li>
-            <li><i class="bi bi-check"></i> <span>Access to pet insurance plans</span></li>
-          </ul>
-          <div class="text-center"><a href="#" class="buy-btn">Subscribe Now</a></div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-      <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-        <div class="pricing-item">
-          <h3>Enterprise Plan</h3>
-          <h4><sup>₹</sup>999<span> / month</span></h4>
-          <ul>
-            <li><i class="bi bi-check"></i> <span>All Premium Plan features</span></li>
-            <li><i class="bi bi-check"></i> <span>Dedicated account manager</span></li>
-            <li><i class="bi bi-check"></i> <span>Custom integrations & API access</span></li>
-            <li><i class="bi bi-check"></i> <span>Bulk pet adoption & service packages</span></li>
-            <li><i class="bi bi-check"></i> <span>Advanced analytics & reporting</span></li>
-          </ul>
-          <div class="text-center"><a href="#" class="buy-btn">Contact Sales</a></div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Pricing Section -->
 
 <!-- Faq Section -->
 <section id="faq" class="faq section light-background">
